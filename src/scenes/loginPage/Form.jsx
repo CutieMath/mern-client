@@ -72,7 +72,7 @@ const Form = () => {
         handleChange,
         handleSubmit,
         setFieldValue,
-        resetFrom,
+        resetForm,
       }) => (
         <form onSubmit={handleSubmit}>
           <Box
@@ -167,6 +167,64 @@ const Form = () => {
                 </Box>
               </>
             )}
+            {/* For both login and register  */}
+            <TextField
+              label="Email"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.email}
+              name="email"
+              error={Boolean(touched.email) && Boolean(errors.email)}
+              helperText={touched.email && errors.email}
+              sx={{ gridColumn: "span 4" }}
+            />
+            <TextField
+              label="Password"
+              type="password"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.password}
+              name="password"
+              error={Boolean(touched.password) && Boolean(errors.password)}
+              helperText={touched.password && errors.password}
+              sx={{ gridColumn: "span 4" }}
+            />
+          </Box>
+
+          {/* Buttons  */}
+          <Box>
+            <Button
+              fullWidth
+              type="submit"
+              sx={{
+                m: "2rem 0",
+                p: "1rem",
+                backgroundColor: palette.primary.main,
+                color: palette.background.alt,
+                "&:hover": { color: palette.primary.main },
+              }}
+            >
+              {isLogin ? "LOGIN" : "REGISTER"}
+            </Button>
+            {/* link to switch between login and register */}
+            <Typography
+              onClick={() => {
+                setPageType(isLogin ? "register" : "login");
+                resetForm();
+              }}
+              sx={{
+                textDecoration: "underline",
+                color: palette.primary.main,
+                "&:hover": {
+                  cursor: "pointer",
+                  color: palette.primary.light,
+                },
+              }}
+            >
+              {isLogin
+                ? "Dont't have an account? Register"
+                : "Already have an account? Login"}
+            </Typography>
           </Box>
         </form>
       )}
