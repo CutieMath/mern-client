@@ -14,7 +14,7 @@ const LoginPage = () => {
         textAlign="center"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Cutie
+          CM
         </Typography>
       </Box>
 

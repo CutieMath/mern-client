@@ -59,7 +59,7 @@ const NavBar = () => {
             },
           }}
         >
-          Cutie
+          CM
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
