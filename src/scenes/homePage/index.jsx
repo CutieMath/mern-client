@@ -27,7 +27,7 @@ const HomePage = () => {
         >
           <MyPostWidget picturePath={picturePath} />
         </Box>
-
+        {isNonMobileScreens && <Box flexBasis="26%"></Box>}
         {/* only desktop  */}
       </Box>
     </Box>

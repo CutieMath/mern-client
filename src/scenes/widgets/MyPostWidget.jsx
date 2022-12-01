@@ -1,4 +1,13 @@
 import {
+  EditOutlined,
+  DeleteOutlined,
+  AttachFileOutlined,
+  GifBoxOutlined,
+  ImageOutlined,
+  MicOutlined,
+  MoreHorizOutlined,
+} from "@mui/icons-material";
+import {
   Box,
   Divider,
   Typography,
@@ -15,13 +24,6 @@ import WidgetWrapper from "../../components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../../state";
-import {
-  GifBoxOutlined,
-  ImageOutlined,
-  AttachFileOutlined,
-  MicOutlined,
-  MoreHorizOutlined,
-} from "@mui/icons-material";
 
 const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch();
@@ -104,9 +106,7 @@ const MyPostWidget = ({ picturePath }) => {
                 {image && (
                   <IconButton
                     onClick={() => setImage(null)}
-                    sx={{
-                      width: "15%",
-                    }}
+                    sx={{ width: "15%" }}
                   >
                     <DeleteOutlined />
                   </IconButton>
@@ -116,11 +116,7 @@ const MyPostWidget = ({ picturePath }) => {
           </Dropzone>
         </Box>
       )}
-      <Divider
-        sx={{
-          margin: "1.25rem 0",
-        }}
-      />
+      <Divider sx={{ margin: "1.25rem 0" }} />
       <FlexBetween>
         <FlexBetween gap="0.25rem" onClick={() => setIsImage(!isImage)}>
           <ImageOutlined sx={{ color: mediumMain }} />
