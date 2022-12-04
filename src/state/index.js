@@ -12,7 +12,6 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setMode: (state) => {
-      // new state of the "mode"
       state.mode = state.mode === "light" ? "dark" : "light";
     },
     setLogin: (state, action) => {
@@ -27,7 +26,7 @@ export const authSlice = createSlice({
       if (state.user) {
         state.user.friends = action.payload.friends;
       } else {
-        console.error("User friends don't exit. ");
+        console.error("user friends non-existent :(");
       }
     },
     setPosts: (state, action) => {
@@ -35,9 +34,7 @@ export const authSlice = createSlice({
     },
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
-        if (post._id === action.payload.post._id) {
-          return action.payload.post;
-        }
+        if (post._id === action.payload.post._id) return action.payload.post;
         return post;
       });
       state.posts = updatedPosts;
