@@ -18,7 +18,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <CssBaseline /> {/* reset MUI css */}
+          <CssBaseline />
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route
