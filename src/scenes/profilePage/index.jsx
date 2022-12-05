@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import NavBar from "../../scenes/navbar";
 import FriendListWidget from "../../scenes/widgets/FriendListWidget";
 import MyPostWidget from "../../scenes/widgets/MyPostWidget";
-import PostWidget from "../../scenes/widgets/PostWidget";
+import PostsWidget from "../widgets/PostsWidget";
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
@@ -31,6 +31,30 @@ const ProfilePage = () => {
   return (
     <Box>
       <NavBar />
+      <Box
+        width="100%"
+        padding="2rem 6%"
+        display={isNonMobileScreens ? "flex" : "block"}
+        gap="2rem"
+        justifyContent="center"
+      >
+        <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
+          <UserWidget
+            userId={userId}
+            picturePath={user.PostsWidgetpicturePath}
+          />
+          <Box m="2rem 0" />
+          <FriendListWidget userId={userId} />
+        </Box>
+        <Box
+          flexBasis={isNonMobileScreens ? "42%" : undefined}
+          mt={isNonMobileScreens ? undefined : "2rem"}
+        >
+          <MyPostWidget picturePath={user.picturePath} />
+          <Box m="2rem 0" />
+          <PostsWidget userId={userId} isProfile />
+        </Box>
+      </Box>
     </Box>
   );
 };
