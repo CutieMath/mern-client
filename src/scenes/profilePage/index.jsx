@@ -6,6 +6,7 @@ import NavBar from "../../scenes/navbar";
 import FriendListWidget from "../../scenes/widgets/FriendListWidget";
 import MyPostWidget from "../../scenes/widgets/MyPostWidget";
 import PostsWidget from "../widgets/PostsWidget";
+import UserWidget from "../widgets/UserWidget";
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
@@ -26,7 +27,7 @@ const ProfilePage = () => {
     getUser();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!user) return <div>User not found</div>;
+  if (!user) return null;
 
   return (
     <Box>
